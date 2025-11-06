@@ -14,6 +14,7 @@ import java.util.Date;
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
+    @Table(name = "inscripciones")
 public class InscripcionesEntity {
 
     @Id
