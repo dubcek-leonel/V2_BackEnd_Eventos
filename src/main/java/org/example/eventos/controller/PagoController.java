@@ -1,56 +1,41 @@
 package org.example.eventos.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.example.eventos.dto.PagoDTO;
 import org.example.eventos.service.PagoService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/pagos")
+@RequiredArgsConstructor
 public class PagoController {
 
     private final PagoService pagoService;
 
-    public PagoController(PagoService pagoService) {
-        this.pagoService = pagoService;
-    }
-
     @GetMapping
-    public ResponseEntity<List<PagoDTO>> getAll() {
-        List<PagoDTO> pagos = pagoService.findAll();
-        return ResponseEntity.ok(pagos);
+    private List<PagoDTO> findAll() {
+        return pagoService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PagoDTO> getById(@PathVariable Long id) {
-        PagoDTO pago = pagoService.findById(id);
-        if (pago != null) {
-            return ResponseEntity.ok(pago);
-        }
-        return ResponseEntity.notFound().build();
+    private PagoDTO findById(@PathVariable Long id) {
+        return pagoService.findById(id);
     }
 
     @PostMapping
-    public ResponseEntity<PagoDTO> create(@RequestBody PagoDTO pagoDTO) {
-        PagoDTO newPago = pagoService.create(pagoDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newPago);
+    private PagoDTO create(@RequestBody PagoDTO pagoDTO) {
+        return pagoService.create(pagoDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PagoDTO> update(@PathVariable Long id, @RequestBody PagoDTO pagoDTO) {
-        PagoDTO updatedPago = pagoService.update(id, pagoDTO);
-        if (updatedPago != null) {
-            return ResponseEntity.ok(updatedPago);
-        }
-        return ResponseEntity.notFound().build();
+    private PagoDTO update(@PathVariable Long id, @RequestBody PagoDTO pagoDTO) {
+        return pagoService.update(id, pagoDTO);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    private void delete(@PathVariable Long id) {
         pagoService.delete(id);
-        return ResponseEntity.noContent().build();
     }
 }
