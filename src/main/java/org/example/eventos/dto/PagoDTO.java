@@ -10,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class PagoDTO {
     private long id;
-    //private String inscripcionId;
+    private long inscripcionId;
     private Double monto;
     private String metodoPago;
     private String numeroOperacion;
