@@ -15,6 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "inscripciones")//nombre tabla
+
 public class InscripcionesEntity {
 
     @Id
