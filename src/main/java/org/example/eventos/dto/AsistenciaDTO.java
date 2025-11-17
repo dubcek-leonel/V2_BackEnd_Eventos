@@ -1,6 +1,7 @@
 package org.example.eventos.dto;
 
 import lombok.*;
+import org.example.eventos.entity.UsuariosEntity;
 
 import java.time.LocalDateTime;
 
@@ -17,10 +18,15 @@ public class AsistenciaDTO {
     private Long inscripcionId;
 
     // Usuario que registró la asistencia
-    private Long registradoPorId;
+   // private Long registradoPorId;
 
-    private LocalDateTime fechaHoraRegistro;
+   private LocalDateTime fechaHoraRegistro;
     private String metodoRegistro;
     private String notas;
-    private LocalDateTime createdAt;
+  //  private LocalDateTime createdAt;
+
+
+
+    private UsuariosEntity usuario;
+
 }

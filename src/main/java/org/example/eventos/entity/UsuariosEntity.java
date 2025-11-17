@@ -1,5 +1,6 @@
 package org.example.eventos.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,13 +8,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
+@Table(name = "usuarios")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "usuarios")
 public class UsuariosEntity {
 
     @Id
@@ -28,6 +30,13 @@ public class UsuariosEntity {
 
     private Date createdAt;
     private Date updatedAt;
+
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<AsistenciaEntity> asistencias;
+
+
 
     @PrePersist
     public void prePersist() {

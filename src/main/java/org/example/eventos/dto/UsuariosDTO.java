@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.eventos.entity.AsistenciaEntity;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,5 +24,8 @@ public class UsuariosDTO {
 
     private Date createdAt;
     private Date updatedAt;
+
+
+    private List<AsistenciaEntity> asistencias;
 
 }

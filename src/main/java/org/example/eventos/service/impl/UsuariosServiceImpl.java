@@ -39,6 +39,7 @@ public class UsuariosServiceImpl implements UsuariosService {
         usuariosEntity.setCodigoEstudiante(usuariosDTO.getCodigoEstudiante());
         usuariosEntity.setRol(usuariosDTO.getRol());
         usuariosEntity.setActivo(usuariosDTO.isActivo());
+        usuariosEntity.setAsistencias(usuariosDTO.getAsistencias());
         UsuariosEntity save = usuariosRepository.save(usuariosEntity);
         return usuariosMapper.userEntityToUserDTO(save);
     }
@@ -55,6 +56,7 @@ public class UsuariosServiceImpl implements UsuariosService {
             usuariosEntity.setCodigoEstudiante(usuariosDTO.getCodigoEstudiante());
             usuariosEntity.setRol(usuariosDTO.getRol());
             usuariosEntity.setActivo(usuariosDTO.isActivo());
+            usuariosEntity.setAsistencias(usuariosDTO.getAsistencias());
             UsuariosEntity save = usuariosRepository.save(usuariosEntity);
             return usuariosMapper.userEntityToUserDTO(save);
         }throw new RuntimeException("User not found with id: " + id);

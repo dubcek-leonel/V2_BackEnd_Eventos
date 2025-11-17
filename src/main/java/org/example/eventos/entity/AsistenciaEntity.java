@@ -1,5 +1,6 @@
 package org.example.eventos.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
@@ -44,6 +45,16 @@ public class AsistenciaEntity {
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")//, nullable = false)
+    @JsonBackReference
+    private UsuariosEntity usuario;
+
+
+
+
+
 
     @PrePersist
     public void prePersist() {
