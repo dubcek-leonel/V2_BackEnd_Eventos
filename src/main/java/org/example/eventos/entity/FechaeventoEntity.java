@@ -44,4 +44,8 @@ public class FechaeventoEntity {
             createdAt = LocalDateTime.now();
         }
     }
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

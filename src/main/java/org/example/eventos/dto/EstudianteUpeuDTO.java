@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class EstudianteUpeuDTO {
-    private String codigoEstudiante;
+    private Long codigoEstudiante;
     private String nombre;
     private String apellidos;
     private String email;

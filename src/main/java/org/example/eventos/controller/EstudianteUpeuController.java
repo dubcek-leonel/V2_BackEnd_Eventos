@@ -20,7 +20,7 @@ public class EstudianteUpeuController {
     }
 
     @GetMapping("/{codigo}")
-    public ResponseEntity<EstudianteUpeuDTO> getByCodigo(@PathVariable String codigo) {
+    public ResponseEntity<EstudianteUpeuDTO> getByCodigo(@PathVariable Long codigo) {
         return ResponseEntity.ok(service.findByCodigo(codigo));
     }
 
@@ -30,12 +30,12 @@ public class EstudianteUpeuController {
     }
 
     @PutMapping("/{codigo}")
-    public ResponseEntity<EstudianteUpeuDTO> update(@PathVariable String codigo, @RequestBody EstudianteUpeuDTO dto) {
+    public ResponseEntity<EstudianteUpeuDTO> update(@PathVariable Long codigo, @RequestBody EstudianteUpeuDTO dto) {
         return ResponseEntity.ok(service.update(codigo, dto));
     }
 
     @DeleteMapping("/{codigo}")
-    public ResponseEntity<Void> delete(@PathVariable String codigo) {
+    public ResponseEntity<Void> delete(@PathVariable Long codigo) {
         service.delete(codigo);
         return ResponseEntity.noContent().build();
     }

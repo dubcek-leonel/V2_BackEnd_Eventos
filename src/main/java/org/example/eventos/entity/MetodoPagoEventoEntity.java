@@ -32,4 +32,9 @@ public class MetodoPagoEventoEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "evento_id", nullable = false)
     private EventoEntity evento;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

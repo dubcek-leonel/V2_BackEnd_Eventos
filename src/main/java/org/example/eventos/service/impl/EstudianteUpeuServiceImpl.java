@@ -24,7 +24,7 @@ public class EstudianteUpeuServiceImpl implements EstudianteUpeuService {
     }
 
     @Override
-    public EstudianteUpeuDTO findByCodigo(String codigo) {
+    public EstudianteUpeuDTO findByCodigo(Long codigo) {
         EstudianteUpeuEntity entity = repository.findById(codigo)
                 .orElseThrow(() -> new RuntimeException("Estudiante no encontrado con código: " + codigo));
         return mapper.estudianteUpeuEntityToEstudianteUpeuDTO(entity);
@@ -38,7 +38,7 @@ public class EstudianteUpeuServiceImpl implements EstudianteUpeuService {
     }
 
     @Override
-    public EstudianteUpeuDTO update(String codigo, EstudianteUpeuDTO dto) {
+    public EstudianteUpeuDTO update(Long codigo, EstudianteUpeuDTO dto) {
         EstudianteUpeuEntity existing = repository.findById(codigo)
                 .orElseThrow(() -> new RuntimeException("Estudiante no encontrado con código: " + codigo));
 
@@ -56,7 +56,7 @@ public class EstudianteUpeuServiceImpl implements EstudianteUpeuService {
     }
 
     @Override
-    public void delete(String codigo) {
+    public void delete(Long codigo) {
         if (!repository.existsById(codigo)) {
             throw new RuntimeException("Estudiante no encontrado con código: " + codigo);
         }

@@ -14,8 +14,9 @@ import java.time.LocalDateTime;
 public class EstudianteUpeuEntity {
 
     @Id
-    @Column(name = "codigo_estudiante", nullable = false, length = 50)
-    private String codigoEstudiante;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigo_estudiante")
+    private Long codigoEstudiante;
 
     @Column(nullable = false, length = 100)
     private String nombre;
@@ -46,4 +47,15 @@ public class EstudianteUpeuEntity {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt = LocalDateTime.now();
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }

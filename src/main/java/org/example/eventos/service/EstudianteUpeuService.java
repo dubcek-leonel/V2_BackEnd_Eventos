@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface EstudianteUpeuService {
     List<EstudianteUpeuDTO> findAll();
-    EstudianteUpeuDTO findByCodigo(String codigo);
+    EstudianteUpeuDTO findByCodigo(Long codigo);
     EstudianteUpeuDTO create(EstudianteUpeuDTO dto);
-    EstudianteUpeuDTO update(String codigo, EstudianteUpeuDTO dto);
-    void delete(String codigo);
+    EstudianteUpeuDTO update(Long codigo, EstudianteUpeuDTO dto);
+    void delete(Long codigo);
 }
