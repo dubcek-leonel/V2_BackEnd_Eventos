@@ -9,11 +9,12 @@ import lombok.Setter;
 
 import java.util.Date;
 
-    @Entity
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "inscripciones")//nombre tabla
 public class InscripcionesEntity {
 
     @Id
